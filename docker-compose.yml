@@ -1,0 +1,15 @@
+version: '3.10'
+
+services:
+  ocr-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ocr_server_v6
+    restart: unless-stopped
+    ports:
+      - "8010:8010"
+    env_file:
+      - .env
+    environment:
+      - PYTHONUNBUFFERED=1
